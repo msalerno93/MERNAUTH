@@ -1,10 +1,11 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignIn = () => {
   const [formData, setFormData] = useState({})
   const [error, setError] = useState(false)
   const [loading, setLoading] = useState(false)
+  const navigate = useNavigate()
   // const API = 'http://localhost:3001/api/'
 
   const handleChange = (e) => {
@@ -29,6 +30,7 @@ const SignIn = () => {
         setError(true)
         return
       }
+      navigate('/signin')
     } catch (error) {
       setLoading(false)
       setError(true)
